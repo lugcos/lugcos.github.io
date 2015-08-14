@@ -1,2 +1,2 @@
-Sitemap: http://www.lugcos.org/sitemapindex.xml
+Sitemap: http://lugcos.github.io/sitemapindex.xml
 
