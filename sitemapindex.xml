@@ -7,14 +7,14 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>http://lugcos.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-08-14T00:29:00Z</lastmod>
+  <lastmod>2015-08-14T00:54:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lugcos.github.io/rss.xml</loc>
-  <lastmod>2015-08-14T00:50:00Z</lastmod>
+  <lastmod>2015-08-14T00:54:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lugcos.github.io/sitemap.xml</loc>
-  <lastmod>2015-08-14T00:50:00Z</lastmod>
+  <lastmod>2015-08-14T00:54:00Z</lastmod>
  </sitemap>
 </sitemapindex>
