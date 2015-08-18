@@ -6,27 +6,43 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://lugcos.github.io/categories/cat_electronica.xml</loc>
+  <lastmod>2015-08-18T18:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://lugcos.github.io/categories/cat_impresoras-3d.xml</loc>
-  <lastmod>2015-08-17T23:54:00Z</lastmod>
+  <lastmod>2015-08-18T18:31:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://lugcos.github.io/categories/corriente.xml</loc>
+  <lastmod>2015-08-18T18:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lugcos.github.io/categories/nikola.xml</loc>
-  <lastmod>2015-08-17T23:54:00Z</lastmod>
+  <lastmod>2015-08-18T18:31:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lugcos.github.io/categories/prusa.xml</loc>
-  <lastmod>2015-08-17T23:54:00Z</lastmod>
+  <lastmod>2015-08-18T18:31:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://lugcos.github.io/categories/resistencias.xml</loc>
+  <lastmod>2015-08-18T18:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://lugcos.github.io/categories/voltaje.xml</loc>
+  <lastmod>2015-08-18T18:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lugcos.github.io/galleries/rss.xml</loc>
-  <lastmod>2015-08-17T23:58:00Z</lastmod>
+  <lastmod>2015-08-18T17:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lugcos.github.io/rss.xml</loc>
-  <lastmod>2015-08-17T23:54:00Z</lastmod>
+  <lastmod>2015-08-18T18:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lugcos.github.io/sitemap.xml</loc>
-  <lastmod>2015-08-17T23:58:00Z</lastmod>
+  <lastmod>2015-08-18T18:39:00Z</lastmod>
  </sitemap>
 </sitemapindex>
