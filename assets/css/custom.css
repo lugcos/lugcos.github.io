@@ -1,0 +1,8 @@
+.figure img {
+    border-radius: 30px;
+    border: 2px solid #DDDDDD;
+    padding: 4px;
+    -moz-border-radius: 30px;
+    -khtml-border-radius: 30px;
+    -webkit-border-radius: 30px;
+}
