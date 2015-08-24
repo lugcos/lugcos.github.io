@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LugCOS | Generar un video a partir de miles de fotos</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/fonts.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="http://lugcos.github.io/posts/20120415generar-un-video-a-partir-de-miles-de-fotos/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="LugCOS Team">
+<link rel="prev" href="../20100829como-unir-videos-en-gnulinux/" title="Cómo unir videos en GNU/Linux" type="text/html">
+<link rel="next" href="../20120426limpiar-wordpress-infectado/" title="Limpiar WordPress infectado" type="text/html">
+<meta property="og:site_name" content="LugCOS">
+<meta property="og:title" content="Generar un video a partir de miles de fotos">
+<meta property="og:url" content="http://lugcos.github.io/posts/20120415generar-un-video-a-partir-de-miles-de-fotos/">
+<meta property="og:description" content="Un par de noches atrás nos juntamos con los excompañeros de la facu en casa. Mi amigo Nico trajo su nuevo chiche, una camarita de alta resistencia que está haciendo furor por estos días: GoPro.
+Una de">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2012-04-15T22:04:28-03:00">
+<meta property="article:tag" content="fotos">
+<meta property="article:tag" content="GoPro">
+<meta property="article:tag" content="mencoder">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://lugcos.github.io/">
+
+                <span id="blog-title">LugCOS</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../archive.html">Archivo</a>
+                </li>
+<li>
+<a href="../../categories/">Etiquetas</a>
+                </li>
+<li>
+<a href="../../rss.xml">Canal RSS</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Código fuente</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name">Generar un video a partir de miles de fotos</h1>
+
+        <div class="metadata">
+            <p class="dateline"><span class="fa fa-calendar"></span> Publicado: <time class="published dt-published" datetime="2012-04-15T22:04:28-03:00" itemprop="datePublished" title="2012-04-15 22:04">2012-04-15 22:04</time></p>
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>Un par de noches atrás nos juntamos con los excompañeros de la facu en casa. Mi amigo <a href="http://nicocesar.com/" target="_blank">Nico</a> trajo su nuevo chiche, una camarita de alta resistencia que está haciendo furor por estos días: <a href="http://gopro.com/" target="_blank">GoPro</a>.</p>
+<p>Una de las cosas que se puede hacer con la cámara es dejarla en algún lugar sacando fotos cada, por ejemplo, dos segundos. Luego, con un comando en Linux, puede generar un video. El resultado es muy bueno; muy acorde a lo acelerado que se vive en estos días y una forma de que los nerds avancemos varios casilleros en la escala social mostrando el artilugio.</p>
+<p>Le pedí el pace mágico para tenerlo a mano si alguna vez me compro uno de estos aparatitos:</p>
+
+<div class="wp_syntax" style="white-space: nowrap; overflow: auto;"><table><tr><td class="code"><pre class="bash" style="font-family: monospace;"><span style="color: #000000; font-weight: bold;">for</span> a <span style="color: #000000; font-weight: bold;">in</span> $<span style="color: #7a0874; font-weight: bold;">(</span> <span style="color: #c20cb9; font-weight: bold;">seq</span> <span style="color: #660033;">-w</span> <span style="color: #000000;">65</span> <span style="color: #000000;">141</span><span style="color: #7a0874; font-weight: bold;">)</span>; 
+<span style="color: #000000; font-weight: bold;">do</span> <span style="color: #c20cb9; font-weight: bold;">ls</span> <span style="color: #000000; font-weight: bold;">/</span>media<span style="color: #000000; font-weight: bold;">/</span><span style="color: #000000;">3837</span>-<span style="color: #000000;">3763</span><span style="color: #000000; font-weight: bold;">/</span>DCIM<span style="color: #000000; font-weight: bold;">/</span>100GOPRO<span style="color: #000000; font-weight: bold;">/</span>GOPR0<span style="color: #007800;">$a</span>.JPG <span style="color: #000000; font-weight: bold;">&gt;&gt;</span> lista.txt; <span style="color: #000000; font-weight: bold;">done</span>
+mencoder mf:<span style="color: #000000; font-weight: bold;">//@</span>lista.txt <span style="color: #660033;">-mf</span> <span style="color: #007800;">fps</span>=<span style="color: #000000;">25</span>:<span style="color: #007800;">type</span>=jpg  <span style="color: #660033;">-lavcopts</span> <span style="color: #007800;">vcodec</span>=mpeg4:<span style="color: #007800;">vbitrate</span>=<span style="color: #000000;">3200000</span>:<span style="color: #007800;">mbd</span>=<span style="color: #000000;">2</span>:mv0:trell:v4mv:cbp:<span style="color: #007800;">last_pred</span>=<span style="color: #000000;">3</span>:<span style="color: #007800;">predia</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">dia</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">vmax_b_frames</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">vb_strategy</span>=<span style="color: #000000;">1</span>:<span style="color: #007800;">precmp</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">cmp</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">subcmp</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">preme</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">vme</span>=<span style="color: #000000;">5</span>:naq:<span style="color: #007800;">qns</span>=<span style="color: #000000;">2</span> <span style="color: #660033;">-vf</span> <span style="color: #007800;">scale</span>=<span style="color: #000000;">1280</span>:<span style="color: #000000;">1024</span> <span style="color: #660033;">-oac</span> copy <span style="color: #660033;">-audiofile</span> soundtrack.mp3 <span style="color: #660033;">-o</span> video-<span style="color: #000000;">1024</span>.avi</pre></td></tr></table></div>
+
+    </div>
+    <aside class="postpromonav"><nav><small>
+        <span class="tags fa fa-tags"></span>
+        <ul itemprop="keywords" class="tags">
+<li>
+<a class="tag p-category" href="../../categories/fotos/" rel="tag">fotos</a>
+	      - 
+	    </li>
+            <li>
+<a class="tag p-category" href="../../categories/gopro/" rel="tag">GoPro</a>
+	      - 
+	    </li>
+            <li>
+<a class="tag p-category" href="../../categories/mencoder/" rel="tag">mencoder</a>
+	    </li>
+        </ul>
+<br><span class="tags fa fa-user"></span>LugCOS Team
+	<br><span class="tags fa fa-calendar"></span>15 abril, 2012
+	</small>
+
+    
+        <ul class="pager hidden-print">
+<li class="previous">
+                <a href="../20100829como-unir-videos-en-gnulinux/" rel="prev" title="Cómo unir videos en GNU/Linux">« Publicación anterior</a>
+            </li>
+            <li class="next">
+                <a href="../20120426limpiar-wordpress-infectado/" rel="next" title="Limpiar WordPress infectado">Siguiente publicación »</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="lugcos",
+            disqus_url="http://lugcos.github.io/posts/20120415generar-un-video-a-partir-de-miles-de-fotos/",
+        disqus_title="Generar un video a partir de miles de fotos",
+        disqus_identifier="cache/posts/juanjoconti/20120415generar-un-video-a-partir-de-miles-de-fotos.html",
+        disqus_config = function () {
+            this.language = "es_ES";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="lugcos";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2015         <a href="mailto:jjconti@gmail.com">LugCOS Team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-es.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

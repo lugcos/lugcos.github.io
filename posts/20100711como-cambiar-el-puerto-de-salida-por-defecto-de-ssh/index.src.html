@@ -1,0 +1,15 @@
+<html><body><p>Si en una terminal tipeamos:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="python" style="font-family: monospace;">ssh <span style="color: #dc143c;">user</span><span style="color: #66cc66;">@</span>domain.<span style="color: black;">com</span></pre></td></tr></table></div>
+
+<p>el cliente ssh intentará contactarse al puerto 22 de domain.com. Cómo cambiamos ese puerto?</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="python" style="font-family: monospace;">ssh -p <span style="color: #ff4500;">2222</span> <span style="color: #dc143c;">user</span><span style="color: #66cc66;">@</span>domain.<span style="color: black;">com</span></pre></td></tr></table></div>
+
+<p>Pero qué pasa si no tenemos acceso a cambiar ese parámetro? Puede pasarnos esto? Sí, por ejemplo si accedemos a un repositorio cvs por ssh; cuando ejecutamos uno de los comandos cvs, el tunel ssh se hace sin que nos demos cuenta. Si el servidor al que nos queremos conectar escucha en un puerto distinto al por defecto, tenemos un problema.</p>
+<p><strong>Hoy no me acordaba cómo se configuraba esto y resultó bastante tedioso buscarlo en Internet </strong>(todas las respuestas a la búsqueda era sobre como cambiar el puerto en el que un servidor ssh <em>escucha</em>). Lo dejo aquí para futuras referencias.</p>
+<p>La forma de configurar un puerto por defecto para un cliente ssh en GNU/Linux es editando el archivo <code>.ssh/config</code> y añadiendo la línea:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="python" style="font-family: monospace;">Port NNNN</pre></td></tr></table></div>
+
+<p>dónde NNNN es el número de puerto.</p></body></html>

@@ -58,7 +58,7 @@
             
             
 <div class="alert alert-success">
-  <strong>¡Nuevo sitio del LugCOS!:</strong> desde GNU/Linux... hasta impresoras 3D (pasando por electrónica y eventos "sociales").</div>
+  <strong>¡Nuevo sitio del LugCOS!:</strong> desde GNU/Linux hasta impresoras 3D (pasando por electrónica y eventos "sociales").</div>
 
 <hr>
 <div class="postindex">
@@ -90,6 +90,120 @@
         </div>
     </header><div class="e-content entry-content">
     <p>Luego de las innumerables insistencias de mis amigos del LugCOS, uso Nikola para crear este sitio :)</p>
+    </div>
+    </article><hr>
+<article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/20120426limpiar-wordpress-infectado/" class="u-url">Limpiar WordPress infectado</a></h1>
+        <div class="metadata">
+            <p class="dateline"><span class="fa fa-calendar"></span> Publicado: <time class="published dt-published" datetime="2012-04-26T04:04:59-03:00" title="2012-04-26 04:04">2012-04-26 04:04</time></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Si tenés un blog con WordPress y te atrasás con las actualizaciones (o no) tarde o temprano te embocan (no es la primera vez que me pasa). Alguna herramienta automática detecta que estás corriendo una versión vulnerable a cierto fallo de seguridad reciente y otra inserta código malicioso en todos los archivos de tu sistema de blogging en los que pueda escribir.</p>
+<p>Las consecuencias son que cuando tus visitantes intenta entrar al blog son redirigidos a un sitio porno o de venta de Viagra. Si se accede con Chrome a uno de estos sitios infectados, un enorme cartel rojo de avisa que el sitio incluye contenido de una web rumana reportada como distribuidora de malware.</p>
+<p>Tu hosting te manda un mail diciéndote que no te sientas solo por que no lo estás, pero en realidad si lo estás. Te recomiendan cosas poco prácticas como actualizar, cambiar claves o restaurar un back-up previo a la infección. Tengo casi 1000 archivos .php llenos de código malicioso y me decís que cambié mis claves (?). Necesito una forma de arreglar esto.</p>
+<p>Dejo aquí unos tips en base a mi experiencia personal, con la certeza de que en cualquier momento voy a volver a buscarlos por necesidad.</p>
+<p>Muchas de las herramientas que agregan código malicioso (las más simples) agregan una línea al principio de todos los .php en los que pueden escribir. En mi caso esta línea tenía esta forma:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="python" style="font-family: monospace;"> <span style="color: #66cc66;">&lt;</span>?php /**/ <span style="color: #008000;">eval</span><span style="color: black;">(</span>base64_decode<span style="color: black;">(</span><span style="color: #483d8b;">"aWYoZnVuY3...oZnVu"</span><span style="color: black;">)</span><span style="color: black;">)</span><span style="color: #66cc66;">;</span>?<span style="color: #66cc66;">&gt;&lt;</span>?php</pre></td></tr></table></div>
+
+<p>(código codificado que es decodificado y evaluado al ejecutar el archivo).</p>
+<p>¿Qué archivos están infectados?</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="bash" style="font-family: monospace;"><span style="color: #c20cb9; font-weight: bold;">grep</span> <span style="color: #660033;">-l</span> <span style="color: #7a0874; font-weight: bold;">eval</span>\<span style="color: #7a0874; font-weight: bold;">(</span>base64_decode <span style="color: #660033;">-R</span> <span style="color: #000000; font-weight: bold;">*</span></pre></td></tr></table></div>
+
+<p>¿Cuantos archivos hay infectados? (aprox.)</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="bash" style="font-family: monospace;"><span style="color: #c20cb9; font-weight: bold;">grep</span> <span style="color: #660033;">-l</span> <span style="color: #7a0874; font-weight: bold;">eval</span>\<span style="color: #7a0874; font-weight: bold;">(</span>base64_decode <span style="color: #660033;">-R</span> <span style="color: #000000; font-weight: bold;">*</span> <span style="color: #000000; font-weight: bold;">|</span> <span style="color: #c20cb9; font-weight: bold;">wc</span> <span style="color: #660033;">-l</span></pre></td></tr></table></div>
+
+<p>Limpiar todos los archivos:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="bash" style="font-family: monospace;"><span style="color: #000000; font-weight: bold;">for</span> x <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #000000; font-weight: bold;">`</span><span style="color: #c20cb9; font-weight: bold;">grep</span> <span style="color: #660033;">-l</span> <span style="color: #7a0874; font-weight: bold;">eval</span>\<span style="color: #7a0874; font-weight: bold;">(</span>base64_decode <span style="color: #660033;">-R</span> <span style="color: #000000; font-weight: bold;">*</span> <span style="color: #000000; font-weight: bold;">|</span> <span style="color: #c20cb9; font-weight: bold;">grep</span> <span style="color: #660033;">-v</span> .back<span style="color: #000000; font-weight: bold;">`</span>; <span style="color: #000000; font-weight: bold;">do</span> <span style="color: #c20cb9; font-weight: bold;">sed</span> -i.back <span style="color: #ff0000;">'1d'</span> <span style="color: #007800;">$x</span> ; <span style="color: #c20cb9; font-weight: bold;">sed</span> <span style="color: #660033;">-i</span> <span style="color: #ff0000;">'1 i &lt;?php'</span> <span style="color: #007800;">$x</span>; <span style="color: #000000; font-weight: bold;">done</span></pre></td></tr></table></div>
+
+<p>El anterior comando busca todos los archivos infectados (excepto los que tienen extensión .back), les borra la primer línea y luego les agrega una primer línea con la apertura del tag php.</p>
+<p>Mejoras, sugerencias y correcciones bienvenidas!</p>
+    </div>
+    </article><hr>
+<article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/20120415generar-un-video-a-partir-de-miles-de-fotos/" class="u-url">Generar un video a partir de miles de fotos</a></h1>
+        <div class="metadata">
+            <p class="dateline"><span class="fa fa-calendar"></span> Publicado: <time class="published dt-published" datetime="2012-04-15T22:04:28-03:00" title="2012-04-15 22:04">2012-04-15 22:04</time></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Un par de noches atrás nos juntamos con los excompañeros de la facu en casa. Mi amigo <a href="http://nicocesar.com/" target="_blank">Nico</a> trajo su nuevo chiche, una camarita de alta resistencia que está haciendo furor por estos días: <a href="http://gopro.com/" target="_blank">GoPro</a>.</p>
+<p>Una de las cosas que se puede hacer con la cámara es dejarla en algún lugar sacando fotos cada, por ejemplo, dos segundos. Luego, con un comando en Linux, puede generar un video. El resultado es muy bueno; muy acorde a lo acelerado que se vive en estos días y una forma de que los nerds avancemos varios casilleros en la escala social mostrando el artilugio.</p>
+<p>Le pedí el pace mágico para tenerlo a mano si alguna vez me compro uno de estos aparatitos:</p>
+
+<div class="wp_syntax" style="white-space: nowrap; overflow: auto;"><table><tr><td class="code"><pre class="bash" style="font-family: monospace;"><span style="color: #000000; font-weight: bold;">for</span> a <span style="color: #000000; font-weight: bold;">in</span> $<span style="color: #7a0874; font-weight: bold;">(</span> <span style="color: #c20cb9; font-weight: bold;">seq</span> <span style="color: #660033;">-w</span> <span style="color: #000000;">65</span> <span style="color: #000000;">141</span><span style="color: #7a0874; font-weight: bold;">)</span>; 
+<span style="color: #000000; font-weight: bold;">do</span> <span style="color: #c20cb9; font-weight: bold;">ls</span> <span style="color: #000000; font-weight: bold;">/</span>media<span style="color: #000000; font-weight: bold;">/</span><span style="color: #000000;">3837</span>-<span style="color: #000000;">3763</span><span style="color: #000000; font-weight: bold;">/</span>DCIM<span style="color: #000000; font-weight: bold;">/</span>100GOPRO<span style="color: #000000; font-weight: bold;">/</span>GOPR0<span style="color: #007800;">$a</span>.JPG <span style="color: #000000; font-weight: bold;">&gt;&gt;</span> lista.txt; <span style="color: #000000; font-weight: bold;">done</span>
+mencoder mf:<span style="color: #000000; font-weight: bold;">//@</span>lista.txt <span style="color: #660033;">-mf</span> <span style="color: #007800;">fps</span>=<span style="color: #000000;">25</span>:<span style="color: #007800;">type</span>=jpg  <span style="color: #660033;">-lavcopts</span> <span style="color: #007800;">vcodec</span>=mpeg4:<span style="color: #007800;">vbitrate</span>=<span style="color: #000000;">3200000</span>:<span style="color: #007800;">mbd</span>=<span style="color: #000000;">2</span>:mv0:trell:v4mv:cbp:<span style="color: #007800;">last_pred</span>=<span style="color: #000000;">3</span>:<span style="color: #007800;">predia</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">dia</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">vmax_b_frames</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">vb_strategy</span>=<span style="color: #000000;">1</span>:<span style="color: #007800;">precmp</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">cmp</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">subcmp</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">preme</span>=<span style="color: #000000;">2</span>:<span style="color: #007800;">vme</span>=<span style="color: #000000;">5</span>:naq:<span style="color: #007800;">qns</span>=<span style="color: #000000;">2</span> <span style="color: #660033;">-vf</span> <span style="color: #007800;">scale</span>=<span style="color: #000000;">1280</span>:<span style="color: #000000;">1024</span> <span style="color: #660033;">-oac</span> copy <span style="color: #660033;">-audiofile</span> soundtrack.mp3 <span style="color: #660033;">-o</span> video-<span style="color: #000000;">1024</span>.avi</pre></td></tr></table></div>
+
+    </div>
+    </article><hr>
+<article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/20100829como-unir-videos-en-gnulinux/" class="u-url">Cómo unir videos en GNU/Linux</a></h1>
+        <div class="metadata">
+            <p class="dateline"><span class="fa fa-calendar"></span> Publicado: <time class="published dt-published" datetime="2010-08-29T14:08:59-03:00" title="2010-08-29 14:08">2010-08-29 14:08</time></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Ayer en <a href="http://es.wikipedia.org/wiki/Carlos_Pellegrini_%28Santa_Fe%29" target="_blank">Carlos Pellegrini</a> fue el <a href="http://es.wikipedia.org/wiki/Agust%C3%ADn_de_Hipona" target="_blank">Día del Pueblo</a>. Una de las actividades que hubo fue una <strong>carrera de autos con obstáculos</strong>. Aproveché para filmar un poco y probar <a href="http://es.wikipedia.org/wiki/Motorola_Milestone" target="_blank">mi nuevo celular</a>, por lo que terminé con varios archivos <strong>mp4</strong>. Para subirlos a Internet quería unirlos: ¿cómo hacerlo de forma fácil? Si tenés varios archivos de texto y querés unirlos, o expresándome de forma más correcta, <strong>contactenarlos</strong>, usás el comando <strong>cat</strong>. ¿Se puede hacer lo mismo con videos? Suena algo loco cuando se escucha por primera vez, pero hay algunos formatos que SI lo soportan, como <a href="http://es.wikipedia.org/wiki/MPEG-1" target="_blank">mpeg 1</a> y <a href="http://es.wikipedia.org/wiki/MPEG-2" target="_blank">2</a>.</p>
+<p>Usando <strong>ffmpeg</strong> podemos convertir los archivos mp4 a mpeg. Parados en el directorio donde estén los videos:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="bash" style="font-family: monospace;"><span style="color: #000000; font-weight: bold;">for</span> i <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #000000; font-weight: bold;">`</span><span style="color: #c20cb9; font-weight: bold;">ls</span> <span style="color: #000000; font-weight: bold;">*</span>.mp4<span style="color: #000000; font-weight: bold;">`</span>; <span style="color: #000000; font-weight: bold;">do</span> <span style="color: #c20cb9; font-weight: bold;">ffmpeg</span> <span style="color: #660033;">-i</span> <span style="color: #007800;">$i</span> <span style="color: #660033;">-sameq</span> <span style="color: #007800;">$i</span>.mpeg; <span style="color: #000000; font-weight: bold;">done</span></pre></td></tr></table></div>
+
+<p>Ahora simplemente los <strong>concatenamos y redirigimos la salida de cat</strong> a un nuevo archivo:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="bash" style="font-family: monospace;"><span style="color: #c20cb9; font-weight: bold;">cat</span> <span style="color: #000000; font-weight: bold;">*</span>.mpeg <span style="color: #000000; font-weight: bold;">&amp;</span>gt; video.mpeg</pre></td></tr></table></div>
+
+<p>Notemos que el orden <em>lexicográfico</em> de los videos coincide con el orden en que fueron tomados; por eso puedo usar el * y obtener un resultado ordenado en el tiempo.</p>
+<p>Listo, <a href="http://www.youtube.com/watch?v=8Txgi8mFy6w" target="_blank">subí el resultado a YouTube</a>.</p>
+<p>Me hubiese gustado una transición más suave entre video y video, pero investigarlo y hacerlo excedía la ecuación costo beneficio. Se escuchan ideas!</p>
+    </div>
+    </article><hr>
+<article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/20100711como-cambiar-el-puerto-de-salida-por-defecto-de-ssh/" class="u-url">Cómo cambiar el puerto de salida por defecto de ssh</a></h1>
+        <div class="metadata">
+            <p class="dateline"><span class="fa fa-calendar"></span> Publicado: <time class="published dt-published" datetime="2010-07-11T15:07:08-03:00" title="2010-07-11 15:07">2010-07-11 15:07</time></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Si en una terminal tipeamos:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="python" style="font-family: monospace;">ssh <span style="color: #dc143c;">user</span><span style="color: #66cc66;">@</span>domain.<span style="color: black;">com</span></pre></td></tr></table></div>
+
+<p>el cliente ssh intentará contactarse al puerto 22 de domain.com. Cómo cambiamos ese puerto?</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="python" style="font-family: monospace;">ssh -p <span style="color: #ff4500;">2222</span> <span style="color: #dc143c;">user</span><span style="color: #66cc66;">@</span>domain.<span style="color: black;">com</span></pre></td></tr></table></div>
+
+<p>Pero qué pasa si no tenemos acceso a cambiar ese parámetro? Puede pasarnos esto? Sí, por ejemplo si accedemos a un repositorio cvs por ssh; cuando ejecutamos uno de los comandos cvs, el tunel ssh se hace sin que nos demos cuenta. Si el servidor al que nos queremos conectar escucha en un puerto distinto al por defecto, tenemos un problema.</p>
+<p><strong>Hoy no me acordaba cómo se configuraba esto y resultó bastante tedioso buscarlo en Internet </strong>(todas las respuestas a la búsqueda era sobre como cambiar el puerto en el que un servidor ssh <em>escucha</em>). Lo dejo aquí para futuras referencias.</p>
+<p>La forma de configurar un puerto por defecto para un cliente ssh en GNU/Linux es editando el archivo <code>.ssh/config</code> y añadiendo la línea:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="python" style="font-family: monospace;">Port NNNN</pre></td></tr></table></div>
+
+<p>dónde NNNN es el número de puerto.</p>
+    </div>
+    </article><hr>
+<article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/20100510borrar-todos-los-archivos-de-un-directorio-menos-los-que/" class="u-url">Borrar todos los archivos de un directorio menos los que…</a></h1>
+        <div class="metadata">
+            <p class="dateline"><span class="fa fa-calendar"></span> Publicado: <time class="published dt-published" datetime="2010-05-11T01:05:29-03:00" title="2010-05-11 01:05">2010-05-11 01:05</time></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>
+Menos los que respetan un PATRON:</p>
+<p><code>for a in `ls | grep -v PATRON`; do rm -fr $a; done</code></p>
+<p>Menos los que contienen tar.gz en su nombre:</p>
+<p><code>for a in `ls | grep -v tar.gz`; do rm -fr $a; done</code></p>
+<p>Útil en muchas situaciones.</p>
+<p>La línea de comandos es tu amiga.</p>
+    </div>
+    </article><hr>
+<article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/20080428borrar-muchas-lineas-con-vim/" class="u-url">Borrar muchas líneas con vim</a></h1>
+        <div class="metadata">
+            <p class="dateline"><span class="fa fa-calendar"></span> Publicado: <time class="published dt-published" datetime="2008-04-28T23:04:20-03:00" title="2008-04-28 23:04">2008-04-28 23:04</time></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Hoy necesité este comando. Voy a anotarlo aca para tenerlo a mano la próxima vez.</p>
+<p>Dentro de vim:
+
+<code>:.,$-10d<br></code>
+</p>
+<p>
+Desde dónde estoy parado (.) hasta el final ($), borrar menos las últimas 10 (-10d).</p>
     </div>
     </article><hr>
 </div>

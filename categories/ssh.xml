@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>LugCOS (ssh)</title><link>http://lugcos.github.io/</link><description></description><atom:link href="http://lugcos.github.io/categories/ssh.xml" type="application/rss+xml" rel="self"></atom:link><language>es</language><lastBuildDate>Mon, 24 Aug 2015 00:18:37 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Cómo cambiar el puerto de salida por defecto de ssh</title><link>http://lugcos.github.io/posts/20100711como-cambiar-el-puerto-de-salida-por-defecto-de-ssh/</link><dc:creator>Juanjo Conti</dc:creator><description>&lt;p&gt;Si en una terminal tipeamos:&lt;/p&gt;
+
+&lt;div class="wp_syntax"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="code"&gt;&lt;pre class="python" style="font-family: monospace;"&gt;ssh &lt;span style="color: #dc143c;"&gt;user&lt;/span&gt;&lt;span style="color: #66cc66;"&gt;@&lt;/span&gt;domain.&lt;span style="color: black;"&gt;com&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+
+&lt;p&gt;el cliente ssh intentará contactarse al puerto 22 de domain.com. Cómo cambiamos ese puerto?&lt;/p&gt;
+
+&lt;div class="wp_syntax"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="code"&gt;&lt;pre class="python" style="font-family: monospace;"&gt;ssh -p &lt;span style="color: #ff4500;"&gt;2222&lt;/span&gt; &lt;span style="color: #dc143c;"&gt;user&lt;/span&gt;&lt;span style="color: #66cc66;"&gt;@&lt;/span&gt;domain.&lt;span style="color: black;"&gt;com&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+
+&lt;p&gt;Pero qué pasa si no tenemos acceso a cambiar ese parámetro? Puede pasarnos esto? Sí, por ejemplo si accedemos a un repositorio cvs por ssh; cuando ejecutamos uno de los comandos cvs, el tunel ssh se hace sin que nos demos cuenta. Si el servidor al que nos queremos conectar escucha en un puerto distinto al por defecto, tenemos un problema.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hoy no me acordaba cómo se configuraba esto y resultó bastante tedioso buscarlo en Internet &lt;/strong&gt;(todas las respuestas a la búsqueda era sobre como cambiar el puerto en el que un servidor ssh &lt;em&gt;escucha&lt;/em&gt;). Lo dejo aquí para futuras referencias.&lt;/p&gt;
+&lt;p&gt;La forma de configurar un puerto por defecto para un cliente ssh en GNU/Linux es editando el archivo &lt;code&gt;.ssh/config&lt;/code&gt; y añadiendo la línea:&lt;/p&gt;
+
+&lt;div class="wp_syntax"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="code"&gt;&lt;pre class="python" style="font-family: monospace;"&gt;Port NNNN&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+
+&lt;p&gt;dónde NNNN es el número de puerto.&lt;/p&gt;</description><category>ssh</category><guid>http://lugcos.github.io/posts/20100711como-cambiar-el-puerto-de-salida-por-defecto-de-ssh/</guid><pubDate>Sun, 11 Jul 2010 18:07:08 GMT</pubDate></item></channel></rss>

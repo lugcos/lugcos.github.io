@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LugCOS | Cómo unir videos en GNU/Linux</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/fonts.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="http://lugcos.github.io/posts/20100829como-unir-videos-en-gnulinux/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Juanjo Conti">
+<link rel="prev" href="../20100711como-cambiar-el-puerto-de-salida-por-defecto-de-ssh/" title="Cómo cambiar el puerto de salida por defecto de ssh" type="text/html">
+<link rel="next" href="../20120415generar-un-video-a-partir-de-miles-de-fotos/" title="Generar un video a partir de miles de fotos" type="text/html">
+<meta property="og:site_name" content="LugCOS">
+<meta property="og:title" content="Cómo unir videos en GNU/Linux">
+<meta property="og:url" content="http://lugcos.github.io/posts/20100829como-unir-videos-en-gnulinux/">
+<meta property="og:description" content="Ayer en Carlos Pellegrini fue el Día del Pueblo. Una de las actividades que hubo fue una carrera de autos con obstáculos. Aproveché para filmar un poco y probar mi nuevo celular, por lo que terminé co">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2010-08-29T14:08:59-03:00">
+<meta property="article:tag" content="ffmpeg">
+<meta property="article:tag" content="mp4">
+<meta property="article:tag" content="mpeg">
+<meta property="article:tag" content="videos">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://lugcos.github.io/">
+
+                <span id="blog-title">LugCOS</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../archive.html">Archivo</a>
+                </li>
+<li>
+<a href="../../categories/">Etiquetas</a>
+                </li>
+<li>
+<a href="../../rss.xml">Canal RSS</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Código fuente</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name">Cómo unir videos en GNU/Linux</h1>
+
+        <div class="metadata">
+            <p class="dateline"><span class="fa fa-calendar"></span> Publicado: <time class="published dt-published" datetime="2010-08-29T14:08:59-03:00" itemprop="datePublished" title="2010-08-29 14:08">2010-08-29 14:08</time></p>
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>Ayer en <a href="http://es.wikipedia.org/wiki/Carlos_Pellegrini_%28Santa_Fe%29" target="_blank">Carlos Pellegrini</a> fue el <a href="http://es.wikipedia.org/wiki/Agust%C3%ADn_de_Hipona" target="_blank">Día del Pueblo</a>. Una de las actividades que hubo fue una <strong>carrera de autos con obstáculos</strong>. Aproveché para filmar un poco y probar <a href="http://es.wikipedia.org/wiki/Motorola_Milestone" target="_blank">mi nuevo celular</a>, por lo que terminé con varios archivos <strong>mp4</strong>. Para subirlos a Internet quería unirlos: ¿cómo hacerlo de forma fácil? Si tenés varios archivos de texto y querés unirlos, o expresándome de forma más correcta, <strong>contactenarlos</strong>, usás el comando <strong>cat</strong>. ¿Se puede hacer lo mismo con videos? Suena algo loco cuando se escucha por primera vez, pero hay algunos formatos que SI lo soportan, como <a href="http://es.wikipedia.org/wiki/MPEG-1" target="_blank">mpeg 1</a> y <a href="http://es.wikipedia.org/wiki/MPEG-2" target="_blank">2</a>.</p>
+<p>Usando <strong>ffmpeg</strong> podemos convertir los archivos mp4 a mpeg. Parados en el directorio donde estén los videos:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="bash" style="font-family: monospace;"><span style="color: #000000; font-weight: bold;">for</span> i <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #000000; font-weight: bold;">`</span><span style="color: #c20cb9; font-weight: bold;">ls</span> <span style="color: #000000; font-weight: bold;">*</span>.mp4<span style="color: #000000; font-weight: bold;">`</span>; <span style="color: #000000; font-weight: bold;">do</span> <span style="color: #c20cb9; font-weight: bold;">ffmpeg</span> <span style="color: #660033;">-i</span> <span style="color: #007800;">$i</span> <span style="color: #660033;">-sameq</span> <span style="color: #007800;">$i</span>.mpeg; <span style="color: #000000; font-weight: bold;">done</span></pre></td></tr></table></div>
+
+<p>Ahora simplemente los <strong>concatenamos y redirigimos la salida de cat</strong> a un nuevo archivo:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="bash" style="font-family: monospace;"><span style="color: #c20cb9; font-weight: bold;">cat</span> <span style="color: #000000; font-weight: bold;">*</span>.mpeg <span style="color: #000000; font-weight: bold;">&amp;</span>gt; video.mpeg</pre></td></tr></table></div>
+
+<p>Notemos que el orden <em>lexicográfico</em> de los videos coincide con el orden en que fueron tomados; por eso puedo usar el * y obtener un resultado ordenado en el tiempo.</p>
+<p>Listo, <a href="http://www.youtube.com/watch?v=8Txgi8mFy6w" target="_blank">subí el resultado a YouTube</a>.</p>
+<p>Me hubiese gustado una transición más suave entre video y video, pero investigarlo y hacerlo excedía la ecuación costo beneficio. Se escuchan ideas!</p>
+    </div>
+    <aside class="postpromonav"><nav><small>
+        <span class="tags fa fa-tags"></span>
+        <ul itemprop="keywords" class="tags">
+<li>
+<a class="tag p-category" href="../../categories/ffmpeg/" rel="tag">ffmpeg</a>
+	      - 
+	    </li>
+            <li>
+<a class="tag p-category" href="../../categories/mp4/" rel="tag">mp4</a>
+	      - 
+	    </li>
+            <li>
+<a class="tag p-category" href="../../categories/mpeg/" rel="tag">mpeg</a>
+	      - 
+	    </li>
+            <li>
+<a class="tag p-category" href="../../categories/videos/" rel="tag">videos</a>
+	    </li>
+        </ul>
+<br><span class="tags fa fa-user"></span>Juanjo Conti
+	<br><span class="tags fa fa-calendar"></span>29 agosto, 2010
+	</small>
+
+    
+        <ul class="pager hidden-print">
+<li class="previous">
+                <a href="../20100711como-cambiar-el-puerto-de-salida-por-defecto-de-ssh/" rel="prev" title="Cómo cambiar el puerto de salida por defecto de ssh">« Publicación anterior</a>
+            </li>
+            <li class="next">
+                <a href="../20120415generar-un-video-a-partir-de-miles-de-fotos/" rel="next" title="Generar un video a partir de miles de fotos">Siguiente publicación »</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="lugcos",
+            disqus_url="http://lugcos.github.io/posts/20100829como-unir-videos-en-gnulinux/",
+        disqus_title="C\u00f3mo unir videos en GNU/Linux",
+        disqus_identifier="cache/posts/juanjoconti/20100829como-unir-videos-en-gnulinux.html",
+        disqus_config = function () {
+            this.language = "es_ES";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="lugcos";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2015         <a href="mailto:jjconti@gmail.com">LugCOS Team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-es.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

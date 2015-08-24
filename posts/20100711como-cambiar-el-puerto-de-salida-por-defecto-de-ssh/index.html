@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LugCOS | Cómo cambiar el puerto de salida por defecto de ssh</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/fonts.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="http://lugcos.github.io/posts/20100711como-cambiar-el-puerto-de-salida-por-defecto-de-ssh/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Juanjo Conti">
+<link rel="prev" href="../20100510borrar-todos-los-archivos-de-un-directorio-menos-los-que/" title="Borrar todos los archivos de un directorio menos los que…" type="text/html">
+<link rel="next" href="../20100829como-unir-videos-en-gnulinux/" title="Cómo unir videos en GNU/Linux" type="text/html">
+<meta property="og:site_name" content="LugCOS">
+<meta property="og:title" content="Cómo cambiar el puerto de salida por defecto de ssh">
+<meta property="og:url" content="http://lugcos.github.io/posts/20100711como-cambiar-el-puerto-de-salida-por-defecto-de-ssh/">
+<meta property="og:description" content="Si en una terminal tipeamos:
+
+ssh user@domain.com
+
+el cliente ssh intentará contactarse al puerto 22 de domain.com. Cómo cambiamos ese puerto?
+
+ssh -p 2222 user@domain.com
+
+Pero qué pasa si no tenemos">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2010-07-11T15:07:08-03:00">
+<meta property="article:tag" content="ssh">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://lugcos.github.io/">
+
+                <span id="blog-title">LugCOS</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../archive.html">Archivo</a>
+                </li>
+<li>
+<a href="../../categories/">Etiquetas</a>
+                </li>
+<li>
+<a href="../../rss.xml">Canal RSS</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.src.html" id="sourcelink">Código fuente</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name">Cómo cambiar el puerto de salida por defecto de ssh</h1>
+
+        <div class="metadata">
+            <p class="dateline"><span class="fa fa-calendar"></span> Publicado: <time class="published dt-published" datetime="2010-07-11T15:07:08-03:00" itemprop="datePublished" title="2010-07-11 15:07">2010-07-11 15:07</time></p>
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>Si en una terminal tipeamos:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="python" style="font-family: monospace;">ssh <span style="color: #dc143c;">user</span><span style="color: #66cc66;">@</span>domain.<span style="color: black;">com</span></pre></td></tr></table></div>
+
+<p>el cliente ssh intentará contactarse al puerto 22 de domain.com. Cómo cambiamos ese puerto?</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="python" style="font-family: monospace;">ssh -p <span style="color: #ff4500;">2222</span> <span style="color: #dc143c;">user</span><span style="color: #66cc66;">@</span>domain.<span style="color: black;">com</span></pre></td></tr></table></div>
+
+<p>Pero qué pasa si no tenemos acceso a cambiar ese parámetro? Puede pasarnos esto? Sí, por ejemplo si accedemos a un repositorio cvs por ssh; cuando ejecutamos uno de los comandos cvs, el tunel ssh se hace sin que nos demos cuenta. Si el servidor al que nos queremos conectar escucha en un puerto distinto al por defecto, tenemos un problema.</p>
+<p><strong>Hoy no me acordaba cómo se configuraba esto y resultó bastante tedioso buscarlo en Internet </strong>(todas las respuestas a la búsqueda era sobre como cambiar el puerto en el que un servidor ssh <em>escucha</em>). Lo dejo aquí para futuras referencias.</p>
+<p>La forma de configurar un puerto por defecto para un cliente ssh en GNU/Linux es editando el archivo <code>.ssh/config</code> y añadiendo la línea:</p>
+
+<div class="wp_syntax"><table><tr><td class="code"><pre class="python" style="font-family: monospace;">Port NNNN</pre></td></tr></table></div>
+
+<p>dónde NNNN es el número de puerto.</p>
+    </div>
+    <aside class="postpromonav"><nav><small>
+        <span class="tags fa fa-tags"></span>
+        <ul itemprop="keywords" class="tags">
+<li>
+<a class="tag p-category" href="../../categories/ssh/" rel="tag">ssh</a>
+	    </li>
+        </ul>
+<br><span class="tags fa fa-user"></span>Juanjo Conti
+	<br><span class="tags fa fa-calendar"></span>11 julio, 2010
+	</small>
+
+    
+        <ul class="pager hidden-print">
+<li class="previous">
+                <a href="../20100510borrar-todos-los-archivos-de-un-directorio-menos-los-que/" rel="prev" title="Borrar todos los archivos de un directorio menos los que…">« Publicación anterior</a>
+            </li>
+            <li class="next">
+                <a href="../20100829como-unir-videos-en-gnulinux/" rel="next" title="Cómo unir videos en GNU/Linux">Siguiente publicación »</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="lugcos",
+            disqus_url="http://lugcos.github.io/posts/20100711como-cambiar-el-puerto-de-salida-por-defecto-de-ssh/",
+        disqus_title="C\u00f3mo cambiar el puerto de salida por defecto de ssh",
+        disqus_identifier="cache/posts/juanjoconti/20100711como-cambiar-el-puerto-de-salida-por-defecto-de-ssh.html",
+        disqus_config = function () {
+            this.language = "es_ES";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="lugcos";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2015         <a href="mailto:jjconti@gmail.com">LugCOS Team</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-es.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("es");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

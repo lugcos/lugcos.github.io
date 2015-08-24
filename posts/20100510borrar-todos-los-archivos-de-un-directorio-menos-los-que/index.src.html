@@ -1,0 +1,7 @@
+<html><body><p>
+Menos los que respetan un PATRON:</p>
+<p><code>for a in `ls | grep -v PATRON`; do rm -fr $a; done</code></p>
+<p>Menos los que contienen tar.gz en su nombre:</p>
+<p><code>for a in `ls | grep -v tar.gz`; do rm -fr $a; done</code></p>
+<p>Útil en muchas situaciones.</p>
+<p>La línea de comandos es tu amiga.</p></body></html>
