@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>LugCOS (grep)</title><link>http://lugcos.github.io/</link><description></description><atom:link href="http://lugcos.github.io/secciones/grep.xml" type="application/rss+xml" rel="self"></atom:link><language>es</language><lastBuildDate>Mon, 24 Aug 2015 19:10:30 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Borrar todos los archivos de un directorio menos los que…</title><link>http://lugcos.github.io/posts/20100510borrar-todos-los-archivos-de-un-directorio-menos-los-que/</link><dc:creator>Juanjo Conti</dc:creator><description>&lt;p&gt;
+Menos los que respetan un PATRON:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;for a in `ls | grep -v PATRON`; do rm -fr $a; done&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Menos los que contienen tar.gz en su nombre:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;for a in `ls | grep -v tar.gz`; do rm -fr $a; done&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Útil en muchas situaciones.&lt;/p&gt;
+&lt;p&gt;La línea de comandos es tu amiga.&lt;/p&gt;</description><category>grep</category><guid>http://lugcos.github.io/posts/20100510borrar-todos-los-archivos-de-un-directorio-menos-los-que/</guid><pubDate>Tue, 11 May 2010 04:05:29 GMT</pubDate></item></channel></rss>

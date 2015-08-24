@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>LugCOS (vim)</title><link>http://lugcos.github.io/</link><description></description><atom:link href="http://lugcos.github.io/secciones/vim.xml" type="application/rss+xml" rel="self"></atom:link><language>es</language><lastBuildDate>Mon, 24 Aug 2015 19:10:30 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Borrar muchas líneas con vim</title><link>http://lugcos.github.io/posts/20080428borrar-muchas-lineas-con-vim/</link><dc:creator>Juanjo Conti</dc:creator><description>&lt;p&gt;Hoy necesité este comando. Voy a anotarlo aca para tenerlo a mano la próxima vez.&lt;/p&gt;
+&lt;p&gt;Dentro de vim:
+
+&lt;code&gt;:.,$-10d&lt;br&gt;&lt;/code&gt;
+&lt;/p&gt;
+&lt;p&gt;
+Desde dónde estoy parado (.) hasta el final ($), borrar menos las últimas 10 (-10d).&lt;/p&gt;</description><category>vim</category><guid>http://lugcos.github.io/posts/20080428borrar-muchas-lineas-con-vim/</guid><pubDate>Tue, 29 Apr 2008 02:04:20 GMT</pubDate></item></channel></rss>

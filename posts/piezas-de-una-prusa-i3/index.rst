@@ -2,7 +2,7 @@
 .. author: El Grande
 .. slug: piezas-de-una-prusa-i3
 .. date: 2015-08-16 17:24:51 UTC-03:00
-.. tags:  Prusa
+.. tags:  Prusa, fotos
 .. category:  Impresoras 3D
 .. link: 
 .. description: 

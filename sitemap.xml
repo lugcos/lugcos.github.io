@@ -7,186 +7,206 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://lugcos.github.io/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/2007/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/archivo/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/2008/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/archivo/2007/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/2010/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/archivo/2008/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/2012/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/archivo/2010/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/2015/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/archivo/2012/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/archive.html</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/archivo/2015/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/categories/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/autor/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/categories/cat_electronica/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/autor/adrian-staffolani/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/categories/cat_gnulinux/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/autor/el-grande/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/categories/cat_impresoras-3d/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/autor/flaviosan/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
-  <loc>http://lugcos.github.io/categories/corriente/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/ffmpeg/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/flash/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/fotos/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/gopro/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/grep/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/hacks/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/mencoder/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/mp4/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/mpeg/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/nikola/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/php/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/prusa/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/resistencias/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/ssh/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/ubuntu/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/videos/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/vim/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/voltaje/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
- </url>
- <url>
-  <loc>http://lugcos.github.io/categories/wordpress/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <loc>http://lugcos.github.io/autor/juanjo-conti/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/galleries/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/index-1.html</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:11:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/listings/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/20080428borrar-muchas-lineas-con-vim/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/20100510borrar-todos-los-archivos-de-un-directorio-menos-los-que/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/20100711como-cambiar-el-puerto-de-salida-por-defecto-de-ssh/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/20100829como-unir-videos-en-gnulinux/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/20120415generar-un-video-a-partir-de-miles-de-fotos/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/20120426limpiar-wordpress-infectado/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/conceptos-basicos-de-electronica/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/piezas-de-una-prusa-i3/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/primer-post/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/renelexilio37lpaj_xv_rcerror-plugin-flash-en-ubuntu-1004/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/renelexilio3w6w-zouk5i4teclado-lento-en-ubuntu-1004-lucid-lynx/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
  <url>
   <loc>http://lugcos.github.io/posts/renelexilio3xwdtfutrqqspor-fin-tengo-mi-ubuntu-andando-100/</loc>
-  <lastmod>2015-08-24T01:11:00Z</lastmod>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/cat_electronica/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/cat_gnulinux/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/cat_impresoras-3d/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/corriente/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/ffmpeg/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/flash/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/fotos/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/gopro/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/grep/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/hacks/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/mencoder/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/mp4/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/mpeg/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/nikola/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/php/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/prusa/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/resistencias/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/ssh/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/ubuntu/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/videos/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/vim/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/voltaje/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lugcos.github.io/secciones/wordpress/</loc>
+  <lastmod>2015-08-24T19:10:00Z</lastmod>
  </url>
 </urlset>
